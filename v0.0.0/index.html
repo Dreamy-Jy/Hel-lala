@@ -3,14 +3,57 @@
 
 <head>
   <!--script src="https://d3js.org/d3.v4.min.js"></script-->
+  <script src="C:\Users\Jordane Thomas\Desktop\Hel'lala\v0.0.0\d3\d3.min.js"></script>
 </head>
 
 <body>
-  <p> this is some text </p>
-
-  <script src="C:\Users\Jordane Thomas\Desktop\Hel'lala\v0.0.0\d3\d3.min.js"></script>
   <script>
-    d3.select("p").text("hello world fam!");
+
+  /*
+  make the horizontal line responsive
+  */
+  var canvas = d3.select("body")
+                 .append("svg")
+                 .attr("width","98vw")
+                 .attr("height","98vh");
+  //taken from stack overflow: http://stackoverflow.com/a/2474211
+  var size = {
+    width: window.innerWidth || document.body.clientWidth,
+    height: window.innerHeight || document.body.clientHeight
+  };
+
+  function lineStyleGrid(){
+    //create the verticle lines
+    for (var i = 0; i < 8; i++) {
+      var xPos = (i*(100/7))+'%';
+      canvas.append("line")
+            .attr('x1', xPos)
+            .attr('y1', '0%')
+            .attr('x2', xPos)
+            .attr('y2', '100%')
+            .attr('stroke-width', '2')
+            .attr('stroke', 'black');
+    }
+
+    //I calculated the box height
+    var hPercent = (size["height"]*(7/size["width"]));
+    var horzontalLineNum = Math.floor(100/hPercent);//
+    var box_height = (size["width"]/7.0);//size["height"]*((size["width"]/7)/size["width"])
+    horzontalLineNum = Math.floor(size["height"]/box_height);
+
+    alert(horzontalLineNum+" will be made. These lines will be "+hPercent+"% of the height" );
+    for (var i = 0; i < horzontalLineNum; i++) {
+      canvas.append("line")
+            .attr('x1', "0%")
+            .attr('y1', (i*box_height))
+            .attr('x2', "100%")
+            .attr('y2', (i*box_height))
+            .attr('stroke-width', '2')
+            .attr('stroke', 'black');
+    }
+  }
+  
+  lineStyleGrid();
   </script>
 
 </body>
