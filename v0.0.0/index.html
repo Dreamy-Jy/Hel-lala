@@ -2,60 +2,66 @@
 <html>
 
 <head>
-  <!--script src="https://d3js.org/d3.v4.min.js"></script-->
-  <script src="C:\Users\Jordane Thomas\Desktop\Hel'lala\v0.0.0\d3\d3.min.js"></script>
+    <!--script src='https://d3js.org/d3.v4.min.js'></script-->
+    <script src="C:\Users\Jordane Thomas\Desktop\Hel'lala\v0.0.0\d3\d3.min.js"></script>
 </head>
 
 <body>
-  <script>
+    <script>
+        /*
+         *make the horizontal line responsive
+         *make the execess space in the graph red
+         */
+        var canvas = d3.select('body')
+            .append('svg')
+            .attr('width', '98vw')
+            .attr('height', '98vh');
 
-  /*
-  make the horizontal line responsive
-  */
-  var canvas = d3.select("body")
-                 .append("svg")
-                 .attr("width","98vw")
-                 .attr("height","98vh");
-  //taken from stack overflow: http://stackoverflow.com/a/2474211
-  var size = {
-    width: window.innerWidth || document.body.clientWidth,
-    height: window.innerHeight || document.body.clientHeight
-  };
+        //taken from stack overflow: http://stackoverflow.com/a/2474211
+        var screenSize = {
+            width: window.innerWidth || document.body.clientWidth,
+            height: window.innerHeight || document.body.clientHeight
+        };
 
-  function lineStyleGrid(){
-    //create the verticle lines
-    for (var i = 0; i < 8; i++) {
-      var xPos = (i*(100/7))+'%';
-      canvas.append("line")
-            .attr('x1', xPos)
-            .attr('y1', '0%')
-            .attr('x2', xPos)
-            .attr('y2', '100%')
-            .attr('stroke-width', '2')
-            .attr('stroke', 'black');
-    }
+        var cavasSize = {
+            width: canvas.style('width'),
+            height: canvas.style('height')
+        };
 
-    //I calculated the box height
-    var hPercent = (size["height"]*(7/size["width"]));
-    var horzontalLineNum = Math.floor(100/hPercent);//
-    var box_height = (size["width"]/7.0);//size["height"]*((size["width"]/7)/size["width"])
-    horzontalLineNum = Math.floor(size["height"]/box_height);
+        function lineStyleGrid() {
+            //create the verticle lines
+            for (var i = 0; i < 8; i++) {
+                var xPos = (i * (100 / 7)) + '%';
+                canvas.append('line')
+                    .attr('x1', xPos)
+                    .attr('y1', '0%')
+                    .attr('x2', xPos)
+                    .attr('id', 'svg')
+                    .attr('y2', '100%')
+                    .attr('stroke-width', '2')
+                    .attr('stroke', 'black');
+            }
 
-    alert(horzontalLineNum+" will be made. These lines will be "+hPercent+"% of the height" );
-    for (var i = 0; i < horzontalLineNum; i++) {
-      canvas.append("line")
-            .attr('x1', "0%")
-            .attr('y1', (i*box_height))
-            .attr('x2', "100%")
-            .attr('y2', (i*box_height))
-            .attr('stroke-width', '2')
-            .attr('stroke', 'black');
-    }
-  }
-  
-  lineStyleGrid();
-  </script>
+            //I calculated the box height
+            var boxSideLength = (screenSize['width'] / 7.0); //screenSize['height']*((screenSize['width']/7)/screenSize['width'])
+            var hPercent = 100 * (boxSideLength / screenSize['height']);
+            var horzontalLineNum = Math.floor(100 / hPercent) + 1;
+            var screenExcess = screenSize['height'] - ((horzontalLineNum - 1) * boxSideLength);
 
+            alert(horzontalLineNum + ' will be made. These lines will be ' + hPercent + '% of the height. There is ' + screenExcess + 'px of execess screen');
+            for (var i = 0; i < horzontalLineNum; i++) {
+                canvas.append('line')
+                    .attr('x1', '0%')
+                    .attr('y1', (i * hPercent) + '%')
+                    .attr('x2', '100%')
+                    .attr('y2', (i * hPercent) + '%')
+                    .attr('stroke-width', '2')
+                    .attr('stroke', 'black');
+            }
+        }
+
+        lineStyleGrid();
+        console.log(cavasSize['height'] + ' svg height, ' + cavasSize['width'] + ' svg width');
+    </script>
 </body>
-
 </html>
