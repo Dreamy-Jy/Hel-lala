@@ -4,6 +4,7 @@
 <head>
     <!--script src='https://d3js.org/d3.v4.min.js'></script-->
     <script src="C:\Users\Jordane Thomas\Desktop\Hel'lala\v0.0.0\d3\d3.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -49,12 +50,12 @@
             var screenExcess = screenSize['height'] - ((horzontalLineNum - 1) * boxSideLength);
 
             alert(horzontalLineNum + ' will be made. These lines will be ' + hPercent + '% of the height. There is ' + screenExcess + 'px of execess screen');
-            for (var i = 0; i < horzontalLineNum; i++) {
+            for (var i = 0; i < horzontalLineNum; i++) {// responsive: (i * hPercent) + '%' || static: (i * boxSideLength) + (screenExcess/2)
                 canvas.append('line')
                     .attr('x1', '0%')
-                    .attr('y1', (i * hPercent) + '%')
+                    .attr('y1', (i * boxSideLength) + (screenExcess/2))
                     .attr('x2', '100%')
-                    .attr('y2', (i * hPercent) + '%')
+                    .attr('y2', (i * boxSideLength) + (screenExcess/2))
                     .attr('stroke-width', '2')
                     .attr('stroke', 'black');
             }
