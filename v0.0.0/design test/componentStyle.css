@@ -3,6 +3,7 @@
     height: 56px;
     background-color: #ff4081;
     border-radius: 50px;
+    box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15);
 }
 
 .miniFloatingActionButton {
@@ -10,13 +11,57 @@
     height: 40px;
     background-color: #ff4081;
     border-radius: 50px;
+    box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15);
 }
 
-.imgPlaceHolder {
+.FAB_logo {
+    /* This CSS assumps that the image is the correct size */
     width: 24px;
     height: 24px;
-    background-color: white;
     margin: auto;
-    
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
+.navBar {
+    width: 100%;
+    height: 56px;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+}
+
+
+/*
+the shadowing for the FABs came from this codepen: https://codepen.io/koenigsegg1/pen/pjeJvb
+the vertical alginment for the elements came from this source:
+ */
+
+.centered_MiniFABs {
+    background-color: #FFEB3B;
+    height: 40px;
+    width: 104px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.centered_MiniFABs .miniFloatingActionButton {
+    display: inline-block;
+}
+
+/* This selector was learned from https://stackoverflow.com/a/28799662/5500729*/
+.centered_MiniFABs > .miniFloatingActionButton:not(:last-child) {
+    margin-right: 20px;
+}
+
+.floated_FAB {
+    background-color: #F44336;
+    height: 56px;
+    width: 56px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
