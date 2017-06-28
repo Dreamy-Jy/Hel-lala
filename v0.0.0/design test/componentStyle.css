@@ -71,3 +71,110 @@ the vertical alginment for the elements came from this source:
     top: 50%;
     transform: translateY(-50%);
 }
+/* text box tester */
+
+.textBoxTestingContext {
+    text-align: center; /*centers the input tag horzontally*/
+    height: 100%; /*Size*/
+    width: 100%; /*Size*/
+    margin: auto;/*centers the form contianer*/
+    background-color: transparent;
+}
+
+.textBox {
+    height: 4em;
+    background-color: rgba(0,0,0,.1);
+    border-color: rgba(0,0,0,.15);
+    color: rgb(239, 239, 239);
+    width: 96%;
+}
+
+.textBox:focus {
+    outline-color: rgba(0,0,0,.15);/*rgba(255,255,255,1)*/;
+    background-color: rgba(100,100,100,.1);
+}
+/*Text box */
+body {
+    background-color:rebeccapurple;
+}
+/*question*/
+#question {
+    color: white;
+    padding-top: 10%;
+    font-size: 2.6em;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+.questionBox {
+    margin-bottom: 2em;
+}
+/*answer*/
+.answerForm {
+    width: 90%;
+    margin: auto;
+}
+/*navBar*/
+.navBar2 {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.flatNavButton {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    color: white;
+    background-color: transparent;
+    font-size: 1.5em;
+    padding: 0 2em;
+    height: 100%;
+}
+
+.flatNavButton:focus {
+    outline-color: rgba(0,0,0,.15);
+    background-color: rgba(150,150,150,.1);
+}
+
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.inlineTextBoxContianer {
+    display: inline-block;
+    width: 47%;
+}
+
+/*Text box list*/
+.textBoxListItem {
+    margin-bottom: 2em;
+}
+.textBoxListItem:last-of-type {
+    margin-bottom: 0;
+}
+
+.textBoxListAdder a {
+    font-size: x-large;
+    color: white;
+    text-decoration: none;
+    line-height: 2.5em;
+}
+
+.textBoxListAdder {
+    height: 4em;
+}
+
+.textBoxListAdder:hover {
+    background-color: rgba(255,255,255,.2);
+}
