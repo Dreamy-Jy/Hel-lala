@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="componentStyle.css">
+    <style media="screen">
+      /*.slider {
+          width: 200px;
+        }
+        .slider input[type="range"] {
+          appearance:none;
+          -webkit-appearance:none;
+          outline: none;
+          width: 200px;
+          height: 6px;
+          border-radius: 2px;
+          border: 1px solid #ddd;
+
+        }
+        .slider*/
+      /*CSS was generatated with http://danielstern.ca/range.css/#/*/
+
+      input[type=range].slider {
+        -webkit-appearance: none;
+        width: 100%;
+        margin: 11.75px 0;
+      }
+
+      input[type=range].slider:focus {
+        outline: none;
+      }
+      /*Chrome Styles*/
+
+      input[type=range].slider::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5.5px;
+        cursor: pointer;
+        background: rgba(255,255,255,1);
+        border: 0px solid #010101;
+      }
+      input[type=range].slider::-webkit-slider-thumb {
+        box-shadow: 1.6px 1.6px 3.8px #000000, 0px 0px 1.6px #0d0d0d;
+        height: 29px;
+        width: 29px;
+        border-radius: 50px;
+        background: rgba(102, 51, 153, 0.93);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -11.75px;
+      }
+      input[type=range].slider:focus::-webkit-slider-runnable-track {
+        background: rgba(255,255,255,1);
+      }
+      /*Firefox styles */
+
+      input[type=range].slider::-moz-range-track {
+        width: 100%;
+        height: 5.5px;
+        cursor: pointer;
+        background: rgba(255,255,255,1)
+      }
+
+      input[type=range].slider::-moz-range-thumb {
+        box-shadow: 1.6px 1.6px 3.8px #000000, 0px 0px 1.6px #0d0d0d;
+        height: 29px;
+        width: 29px;
+        border-radius: 50px;
+        background: rgba(102, 51, 153, 0.93);
+        cursor: pointer;
+      }
+
+
+      .importanceMeasure {
+        width: inherit;
+        font-size: 1.5em;
+        margin:auto;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+  <main class="answerForm">
+    <div class="questionBox">
+      <h1 id="question">
+        On a scale of 1 to 10 how much weight does this goal
+        have on the one your setting?
+      </h1>
+    </div>
+    <form class="textBoxTestingContext centered">
+      <article class="importanceMeasure">
+        <div class="importanceMeasureText">
+          <p class="floatLeft">Goal 1 ....</p>
+          <p class="floatRight" id="goal_1_rank">0</p>
+        </div>
+        <input class="slider" type="range" min="0" max="10" step="1" value="0" onchange="changeGoalRanking(this.value, 'goal_1_rank')">
+      </article>
+      <article class="importanceMeasure">
+        <div class="importanceMeasureText">
+          <p class="floatLeft">Goal 2 ....</p>
+          <p class="floatRight" id="goal_2_rank">0</p>
+        </div>
+        <input class="slider" type="range" min="0" max="10" step="1" value="0" onchange="changeGoalRanking(this.value, 'goal_2_rank')">
+      </article>
+    </form>
+  </main>
+
+  <nav class="navBar2">
+    <button class="flatNavButton" style="float:left;">back</button>
+    <button class="flatNavButton" style="float:right;">next</button>
+  </nav>
+
+  <script type="text/javascript">
+  function changeGoalRanking(val, rankTxt) {
+          document.getElementById(rankTxt).innerText = val;
+  }
+  </script>
+</body>
+</html>

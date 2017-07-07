@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=MLul2jAWlbc -->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="normalize.css">
+  <style media="screen">
+    body {
+      background-color: #f8f8f8;
+    }
+    /*.slider {
+        width: 200px;
+      }
+      .slider input[type="range"] {
+        appearance:none;
+        -webkit-appearance:none;
+        outline: none;
+        width: 200px;
+        height: 6px;
+        border-radius: 2px;
+        border: 1px solid #ddd;
+
+      }
+      .slider*/
+    /*CSS was generatated with http://danielstern.ca/range.css/#/*/
+
+    input[type=range].slider {
+      -webkit-appearance: none;
+      width: 100%;
+      margin: 11.75px 0;
+    }
+
+    input[type=range].slider:focus {
+      outline: none;
+    }
+    /*Chrome Styles*/
+
+    input[type=range].slider::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 5.5px;
+      cursor: pointer;
+      background: #484d4d;
+      border: 0px solid #010101;
+    }
+    input[type=range].slider::-webkit-slider-thumb {
+      box-shadow: 1.6px 1.6px 3.8px #000000, 0px 0px 1.6px #0d0d0d;
+      height: 29px;
+      width: 29px;
+      border-radius: 50px;
+      background: rgba(255, 25, 33, 0.93);
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -11.75px;
+    }
+    input[type=range].slider:focus::-webkit-slider-runnable-track {
+      background: #484d4d;
+    }
+    /*Firefox styles */
+
+    input[type=range].slider::-moz-range-track {
+      width: 100%;
+      height: 5.5px;
+      cursor: pointer;
+      background: #484d4d;
+    }
+
+    input[type=range].slider::-moz-range-thumb {
+      box-shadow: 1.6px 1.6px 3.8px #000000, 0px 0px 1.6px #0d0d0d;
+      height: 29px;
+      width: 29px;
+      border-radius: 50px;
+      background: rgba(255, 25, 33, 0.93);
+      cursor: pointer;
+    }
+
+
+    .importanceMeasure {
+      width: 200px;
+    }
+    .importanceMeasure .importanceMeasureText {
+      font-size: 1.5em;
+    }
+    .importanceMeasureGoal {
+      float: left;
+    }
+    .importanceRanking {
+      float: right;
+    }
+
+
+
+  </style>
+
+</head>
+
+<body>
+  <form class="" action="index.html" method="post" style="width:10em;">
+    <div class="importanceMeasure">
+      <div class="importanceMeasureText">
+        <p class="importanceMeasureGoal">Goal 1 ....</p>
+        <p class="importanceRanking" id="goal_1_rank">0</p>
+      </div>
+      <div class="importanceMeasureMeter">
+        <input class="slider" type="range" min="0" max="10" step="1" value="0" onchange="changeGoalRanking(this.value, 'goal_1_rank')">
+      </div>
+    </div>
+    <div class="importanceMeasure">
+      <div class="importanceMeasureText">
+        <p class="importanceMeasureGoal">Goal 2 ....</p>
+        <p class="importanceRanking" id="goal_2_rank">0</p>
+      </div>
+      <div class="importanceMeasureMeter">
+        <input class="slider" type="range" min="0" max="10" step="1" value="0" onchange="changeGoalRanking(this.value, 'goal_2_rank')">
+      </div>
+    </div>
+    <div class="importanceMeasure">
+      <div class="importanceMeasureText">
+        <p class="importanceMeasureGoal">Goal 3 ....</p>
+        <p class="importanceRanking" id="goal_3_rank">0</p>
+      </div>
+      <div class="importanceMeasureMeter">
+        <input class="slider" type="range" min="0" max="10" step="1" value="0" onchange="changeGoalRanking(this.value, 'goal_3_rank')">
+      </div>
+    </div>
+  </form>
+  <script type="text/javascript">
+  function changeGoalRanking(val, rankTxt) {
+          document.getElementById(rankTxt).innerText = val;
+  }
+  </script>
+</body>
+
+</html>

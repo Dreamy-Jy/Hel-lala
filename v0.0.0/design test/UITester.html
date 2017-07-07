@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="componentStyle.css">
+    <script src="C:\Users\Jordane Thomas\Desktop\Hel'lala\v0.0.0\d3\d3.min.js"></script>
+
+  </head>
+  <body style="overflow: hidden;">
+    <script>
+        /*
+         *make the horizontal line responsive
+         *make the execess space in the graph red
+         */
+        var canvas = d3.select('body')
+            .append('svg')
+            .attr('width', '100vw')
+            .attr('height', '100vh');
+
+        //taken from stack overflow: http://stackoverflow.com/a/2474211
+        var screenSize = {
+            width: window.innerWidth || document.body.clientWidth,
+            height: window.innerHeight || document.body.clientHeight
+        };
+
+        var cavasSize = {
+            width: canvas.style('width'),
+            height: canvas.style('height')
+        };
+
+        function lineStyleGrid() {
+            //create the verticle lines
+            for (var i = 0; i < 8; i++) {
+                var xPos = (i * (100 / 7)) + '%';
+                canvas.append('line')
+                    .attr('x1', xPos)
+                    .attr('y1', '0%')
+                    .attr('x2', xPos)
+                    .attr('id', 'svg')
+                    .attr('y2', '100%')
+                    .attr('stroke-width', '2')
+                    .attr('stroke', 'black');
+            }
+
+            //I calculated the box height
+            var boxSideLength = (screenSize['width'] / 7.0); //screenSize['height']*((screenSize['width']/7)/screenSize['width'])
+            var hPercent = 100 * (boxSideLength / screenSize['height']);
+            var horzontalLineNum = Math.floor(100 / hPercent) + 1;
+            var screenExcess = screenSize['height'] - ((horzontalLineNum - 1) * boxSideLength);
+
+            alert(horzontalLineNum + ' will be made. These lines will be ' + hPercent + '% of the height. There is ' + screenExcess + 'px of execess screen');
+            for (var i = 0; i < horzontalLineNum; i++) {// responsive: (i * hPercent) + '%' || static: (i * boxSideLength) + (screenExcess/2)
+                canvas.append('line')
+                    .attr('x1', '0%')
+                    .attr('y1', (i * boxSideLength) + (screenExcess/2))
+                    .attr('x2', '100%')
+                    .attr('y2', (i * boxSideLength) + (screenExcess/2))
+                    .attr('stroke-width', '2')
+                    .attr('stroke', 'black');
+            }
+        }
+
+        lineStyleGrid();
+        console.log(cavasSize['height'] + ' svg height, ' + cavasSize['width'] + ' svg width');
+    </script>
+    <!-- <div style="padding: 10px;">
+        <div class="floatingActionButton">
+            <div class="FAB_logo">
+                <img src="FAB_Demo_Logo.png" class="FAB_logo">
+            </div>
+        </div>
+    </div>
+    <div style="padding: 10px">
+        <div class="miniFloatingActionButton">
+            <div class="FAB_logo">
+                <img src="FAB_Demo_Logo.png" class="FAB_logo">
+            </div>
+        </div>
+    </div> -->
+    <nav class="navBar">
+        <div class="centered_MiniFABs">
+            <div class="miniFloatingActionButton">
+                <div class="FAB_logo">
+                    <img src="FAB_Demo_Logo.png" class="FAB_logo">
+                </div>
+            </div>
+            <div class="miniFloatingActionButton">
+                <div class="FAB_logo">
+                    <img src="FAB_Demo_Logo.png" class="FAB_logo">
+                </div>
+            </div>
+        </div>
+        <div class="floated_FAB">
+            <div class="floatingActionButton">
+                <div class="FAB_logo">
+                    <img src="FAB plus.png" class="FAB_logo">
+                </div>
+            </div>
+        </div>
+    </nav>
+  </body>
+</html>

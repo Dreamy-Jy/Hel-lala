@@ -1,0 +1,38 @@
+{
+  "_comment": "
+  this is a skeleton for the data behind a goal.
+  It runs under the smart goal system. Asking for
+  a specific goal, time line, relationships, specific steps,
+
+  ",
+  "specificGoal": "",
+  "duration": {
+    "startDate": null,
+    "endDate": null
+  },
+  "relationships": [{
+    "linkToAnotherGoal":null,
+    "relationshipType":"+, -, or |(prerequisite)",
+    "optional_SubStep_Other_Goal_Is_Linked_Too":null
+    }],
+  "progress": "percentage, step, or some unit of completetion",
+  "resources": {
+    "money": null,
+    "time": null,
+    "people": null,
+    "ect": null
+  },
+  "style": [],
+  "steps": {
+    "step": {
+      "specificGoal": "",
+      "duration": {
+        "startDate": null,
+        "endDate": null
+      },
+      "relationships": [],
+      "progress": "percentage, step, or some unit of completetion",
+
+    }
+  },
+}

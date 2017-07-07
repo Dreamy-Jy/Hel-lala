@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="componentStyle.css">
+    <script src="https://use.fontawesome.com/013c7924c7.js"></script>
+    <style media="screen">
+      .checkBox {
+        display: block;
+        color: white;
+        font-size: 1.7em;
+        margin-bottom: .4em;
+      }
+      .checkBox:last-of-type {
+        margin-bottom: 0;
+      }
+      .checkBox input[type="checkbox"] {
+        display: none;
+      }
+      .checkBox input[type="checkbox"] + .checkBoxText:active:before {
+        transform: scale(0);
+      }
+      .checkBox input[type="checkbox"] +.checkBoxText::before {
+        content: "\f0c8";
+        font-family: "FontAwesome";
+        speak:none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        width: 1em;
+        display: inline-block;
+        margin-right: 5px;
+        transition: .2s;
+      }
+      .checkBox input[type="checkbox"]:checked +.checkBoxText::before {
+        content: "\f14a";
+      }
+    </style>
+</head>
+<body>
+    <main class="answerForm">
+      <div class="questionBox">
+        <h1 id="question">
+            Does this goal have an relationships with any of your other goals?
+        </h1>
+      </div>
+      <form class="textBoxTestingContext centered">
+        <label class="checkBox"><input type="checkbox" ><span class="checkBoxText">Goal 1...</span></label>
+        <label class="checkBox"><input type="checkbox" ><span class="checkBoxText">Goal 2...</span></label>
+        <label class="checkBox"><input type="checkbox" ><span class="checkBoxText">Goal 3...</span></label>
+      </form>
+    </main>
+    <nav class="navBar2">
+      <button class="flatNavButton" style="float:left;">back</button>
+      <button class="flatNavButton" style="float:right;">next</button>
+    </nav>
+</body>
+</html>
